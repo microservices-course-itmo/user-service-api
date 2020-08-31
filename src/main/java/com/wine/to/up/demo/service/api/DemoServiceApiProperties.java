@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 /**
  * Defines values from properties. Can be autowired as a regular class
  */
+@SuppressWarnings("SpringPropertySource")
 @PropertySources({
-        @PropertySource("classpath:application-test-service-api.properties"),
-        @PropertySource("classpath:application-test-service-api-${spring.profiles.active:local}.properties")
+        @PropertySource("classpath:application-demo-service-api.properties"),
+        @PropertySource("classpath:application-demo-service-api-${spring.profiles.active:local}.properties")
 })
 @ConfigurationProperties(prefix = "demo.service.api")
 @Setter
