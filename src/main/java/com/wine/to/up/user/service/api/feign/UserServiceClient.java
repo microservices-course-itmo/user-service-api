@@ -8,10 +8,10 @@
  * conditions of the License Agreement under which it is provided by or on behalf
  * of Andrsuh INC.
  */
-package com.wine.to.up.demo.service.api.feign;
+package com.wine.to.up.user.service.api.feign;
 
-import com.wine.to.up.demo.service.api.dto.DemoServiceMessage;
-import com.wine.to.up.demo.service.api.service.DemoService;
+import com.wine.to.up.user.service.api.dto.UserServiceMessage;
+import com.wine.to.up.user.service.api.service.UserService;
 import feign.Headers;
 import feign.RequestLine;
 
@@ -25,8 +25,7 @@ import java.util.List;
  * Docker swarm's load balancing will resolve
  * the name of the service and request will be redirected to the particular instance.
  */
-//TODO create-service: rename to reflect your endpoints meaning
-public interface DemoServiceClient extends DemoService {
+public interface UserServiceClient extends UserService {
     /**
      * {@inheritDoc}
      */
@@ -39,7 +38,7 @@ public interface DemoServiceClient extends DemoService {
      */
     @RequestLine(value = "POST /kafka/send/headers")
     @Headers("Content-Type: application/json")
-    void sendMessageWithHeaders(DemoServiceMessage messageWithHeaders);
+    void sendMessageWithHeaders(UserServiceMessage messageWithHeaders);
 
     /**
      * {@inheritDoc}
