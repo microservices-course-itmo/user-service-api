@@ -10,3 +10,5 @@ target/
 .DS_Store
 .classpath
 bin
+
+.editorconfig
