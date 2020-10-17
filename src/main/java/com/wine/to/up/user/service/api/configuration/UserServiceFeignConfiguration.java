@@ -1,7 +1,8 @@
 package com.wine.to.up.user.service.api.configuration;
 
 import com.wine.to.up.user.service.api.UserServiceApiProperties;
-import com.wine.to.up.user.service.api.feign.UserServiceClient;
+import com.wine.to.up.user.service.api.error.UserServiceErrorDecoder;
+import com.wine.to.up.user.service.api.feign.AuthenticationServiceClient;
 import feign.Feign;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
@@ -23,11 +24,12 @@ public class UserServiceFeignConfiguration {
      * Configured feign client
      */
     @Bean
-    public UserServiceClient getKafkaServiceClient() {
+    public AuthenticationServiceClient getKafkaServiceClient() {
         return Feign.builder()
                 .encoder(new GsonEncoder())
                 .decoder(new GsonDecoder())
+                .errorDecoder(new UserServiceErrorDecoder())
                 .client(new OkHttpClient())
-                .target(UserServiceClient.class, "http://" + userServiceApiProperties.getHost());
+                .target(AuthenticationServiceClient.class, "http://" + userServiceApiProperties.getHost());
     }
 }
