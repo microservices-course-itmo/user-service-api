@@ -22,6 +22,6 @@ import org.springframework.stereotype.Component;
 @Getter
 public class UserServiceApiProperties {
     private String messageSentEventsTopicName;
-    private WineResponse wineResponseTopic;
+    private String wineResponseTopic;
     private String host;
 }
