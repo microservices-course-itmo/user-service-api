@@ -1,5 +1,6 @@
 package com.wine.to.up.user.service.api;
 
+import com.wine.to.up.user.service.api.dto.WineResponse;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,5 +22,6 @@ import org.springframework.stereotype.Component;
 @Getter
 public class UserServiceApiProperties {
     private String messageSentEventsTopicName;
+    private String wineResponseTopic;
     private String host;
 }
