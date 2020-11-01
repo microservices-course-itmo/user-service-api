@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "com.wine.to.up.user.service.api.message";
+
+message UserTokens {
+    int64 userId = 1;
+    repeated string iosTokens = 2;
+    repeated string fcmTokens = 3;
+}
