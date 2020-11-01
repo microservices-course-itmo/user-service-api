@@ -9,8 +9,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class WineResponse {
-    private Long wineId;
+public class WinePriceUpdatedResponse {
+    private String wineId;
     private String wineName;
     private Float newWinePrice;
     private List<UserTokens> userTokens;
