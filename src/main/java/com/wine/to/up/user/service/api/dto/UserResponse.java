@@ -9,4 +9,7 @@ public class UserResponse {
     private String id;
     private String phoneNumber;
     private String role;
+    private String name;
+    private Long cityId;
+    private String birthday;
 }
