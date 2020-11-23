@@ -24,7 +24,7 @@ public class UserServiceFeignConfiguration {
      * Configured feign client
      */
     @Bean
-    public AuthenticationServiceClient getKafkaServiceClient() {
+    public AuthenticationServiceClient authenticationServiceClient() {
         return Feign.builder()
                 .encoder(new GsonEncoder())
                 .decoder(new GsonDecoder())
