@@ -1,5 +1,6 @@
 package com.wine.to.up.user.service.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,5 +12,6 @@ public class UserResponse {
     private String role;
     private String name;
     private Long cityId;
-    private String birthday;
+    @JsonFormat(pattern = "dd.MM.yyyy", shape = JsonFormat.Shape.STRING)
+    private String birthdate;
 }
