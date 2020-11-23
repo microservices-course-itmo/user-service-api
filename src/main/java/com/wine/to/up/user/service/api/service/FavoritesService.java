@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface SubscriptionService {
+public interface FavoritesService {
 
     /**
      * Returns list of users subscribed at wine position
@@ -38,14 +38,14 @@ public interface SubscriptionService {
      * @param itemId Wine position id
      * @param userId User's id
      */
-    public void removeUserSubscription(String itemId, Long userId);
+    public void removeUserFavoritesItem(String itemId, Long userId);
 
     /**
      * Adds wine position to subscriptions of user
      * @param itemId Wine position id
      * @param userId User's id
      */
-    public void addUserSubscription(String itemId, Long userId);
+    public void addUserFavoritesItem(String itemId, Long userId);
 
     /**
      * Returns list of users favorites
