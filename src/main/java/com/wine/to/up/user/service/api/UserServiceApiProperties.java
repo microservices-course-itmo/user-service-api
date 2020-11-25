@@ -12,14 +12,16 @@ import org.springframework.stereotype.Component;
  */
 @SuppressWarnings("SpringPropertySource")
 @PropertySources({
-        @PropertySource("classpath:application-user-service-api.properties"),
-        @PropertySource("classpath:application-user-service-api-${spring.profiles.active:local}.properties")
+    @PropertySource("classpath:application-user-service-api.properties"),
+    @PropertySource("classpath:application-user-service-api-${spring.profiles.active:local}.properties")
 })
 @ConfigurationProperties(prefix = "user.service.api")
 @Setter
 @Component
 @Getter
 public class UserServiceApiProperties {
-    private String messageSentEventsTopicName;
     private String host;
+
+    // topic names
+    private String winePriceUpdatedWithTokensTopicName;
 }

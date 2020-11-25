@@ -10,39 +10,25 @@
  */
 package com.wine.to.up.user.service.api.feign;
 
-import com.wine.to.up.user.service.api.dto.UserServiceMessage;
-import com.wine.to.up.user.service.api.service.UserService;
+import com.wine.to.up.user.service.api.error.UnauthorizedException;
+import com.wine.to.up.user.service.api.service.AuthenticationService;
 import feign.Headers;
+import feign.Param;
 import feign.RequestLine;
 
-import java.util.List;
-
 /**
- * Defines the parameters and paths of REST API of Kafka Service
+ * Defines the parameters and paths of REST API of Authentication of User service
  * <p>
  * Java feign client will be generated based on this declaration.
  * <p>
  * Docker swarm's load balancing will resolve
  * the name of the service and request will be redirected to the particular instance.
  */
-public interface UserServiceClient extends UserService {
+public interface AuthenticationServiceClient extends AuthenticationService {
     /**
      * {@inheritDoc}
      */
-    @RequestLine(value = "POST /kafka/send")
+    @RequestLine(value = "POST /validate?token={token}")
     @Headers("Content-Type: application/json")
-    void sendMessage(String message);
-
-    /**
-     * {@inheritDoc}
-     */
-    @RequestLine(value = "POST /kafka/send/headers")
-    @Headers("Content-Type: application/json")
-    void sendMessageWithHeaders(UserServiceMessage messageWithHeaders);
-
-    /**
-     * {@inheritDoc}
-     */
-    @RequestLine(value = "GET /message")
-    List<String> getSentMessages();
+    void validate(@Param("token") String token) throws UnauthorizedException;
 }
