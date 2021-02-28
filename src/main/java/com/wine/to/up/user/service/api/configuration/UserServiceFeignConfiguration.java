@@ -3,6 +3,7 @@ package com.wine.to.up.user.service.api.configuration;
 import com.wine.to.up.user.service.api.UserServiceApiProperties;
 import com.wine.to.up.user.service.api.error.UserServiceErrorDecoder;
 import com.wine.to.up.user.service.api.feign.AuthenticationServiceClient;
+import com.wine.to.up.user.service.api.feign.FavoritesServiceClient;
 import feign.Feign;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
@@ -31,5 +32,15 @@ public class UserServiceFeignConfiguration {
                 .errorDecoder(new UserServiceErrorDecoder())
                 .client(new OkHttpClient())
                 .target(AuthenticationServiceClient.class, "http://" + userServiceApiProperties.getHost());
+    }
+
+    @Bean
+    public FavoritesServiceClient favoritesServiceClient() {
+        return Feign.builder()
+            .encoder(new GsonEncoder())
+            .decoder(new GsonDecoder())
+            .errorDecoder(new UserServiceErrorDecoder())
+            .client(new OkHttpClient())
+            .target(FavoritesServiceClient.class, "http://" + userServiceApiProperties.getHost());
     }
 }
