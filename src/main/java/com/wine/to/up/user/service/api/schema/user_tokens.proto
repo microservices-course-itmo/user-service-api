@@ -6,4 +6,5 @@ message UserTokens {
     int64 userId = 1;
     repeated string iosTokens = 2;
     repeated string fcmTokens = 3;
+    repeated string expoTokens = 4;
 }

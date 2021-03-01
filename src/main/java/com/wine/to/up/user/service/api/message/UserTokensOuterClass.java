@@ -60,6 +60,25 @@ public final class UserTokensOuterClass {
      */
     com.google.protobuf.ByteString
         getFcmTokensBytes(int index);
+
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    java.util.List<java.lang.String>
+        getExpoTokensList();
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    int getExpoTokensCount();
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    java.lang.String getExpoTokens(int index);
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getExpoTokensBytes(int index);
   }
   /**
    * Protobuf type {@code UserTokens}
@@ -76,6 +95,7 @@ public final class UserTokensOuterClass {
       userId_ = 0L;
       iosTokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       fcmTokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      expoTokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -126,6 +146,15 @@ public final class UserTokensOuterClass {
               fcmTokens_.add(s);
               break;
             }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                expoTokens_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              expoTokens_.add(s);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -139,6 +168,9 @@ public final class UserTokensOuterClass {
         }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           fcmTokens_ = fcmTokens_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          expoTokens_ = expoTokens_.getUnmodifiableView();
         }
         makeExtensionsImmutable();
       }
@@ -223,6 +255,35 @@ public final class UserTokensOuterClass {
       return fcmTokens_.getByteString(index);
     }
 
+    public static final int EXPOTOKENS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList expoTokens_;
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getExpoTokensList() {
+      return expoTokens_;
+    }
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    public int getExpoTokensCount() {
+      return expoTokens_.size();
+    }
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    public java.lang.String getExpoTokens(int index) {
+      return expoTokens_.get(index);
+    }
+    /**
+     * <code>repeated string expoTokens = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExpoTokensBytes(int index) {
+      return expoTokens_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -243,6 +304,9 @@ public final class UserTokensOuterClass {
       }
       for (int i = 0; i < fcmTokens_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fcmTokens_.getRaw(i));
+      }
+      for (int i = 0; i < expoTokens_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, expoTokens_.getRaw(i));
       }
     }
 
@@ -271,6 +335,14 @@ public final class UserTokensOuterClass {
         size += dataSize;
         size += 1 * getFcmTokensList().size();
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < expoTokens_.size(); i++) {
+          dataSize += computeStringSizeNoTag(expoTokens_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getExpoTokensList().size();
+      }
       memoizedSize = size;
       return size;
     }
@@ -293,6 +365,8 @@ public final class UserTokensOuterClass {
           .equals(other.getIosTokensList());
       result = result && getFcmTokensList()
           .equals(other.getFcmTokensList());
+      result = result && getExpoTokensList()
+          .equals(other.getExpoTokensList());
       return result;
     }
 
@@ -313,6 +387,10 @@ public final class UserTokensOuterClass {
       if (getFcmTokensCount() > 0) {
         hash = (37 * hash) + FCMTOKENS_FIELD_NUMBER;
         hash = (53 * hash) + getFcmTokensList().hashCode();
+      }
+      if (getExpoTokensCount() > 0) {
+        hash = (37 * hash) + EXPOTOKENS_FIELD_NUMBER;
+        hash = (53 * hash) + getExpoTokensList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -438,6 +516,8 @@ public final class UserTokensOuterClass {
         bitField0_ = (bitField0_ & ~0x00000002);
         fcmTokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        expoTokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -473,6 +553,11 @@ public final class UserTokensOuterClass {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.fcmTokens_ = fcmTokens_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          expoTokens_ = expoTokens_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.expoTokens_ = expoTokens_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -535,6 +620,16 @@ public final class UserTokensOuterClass {
           } else {
             ensureFcmTokensIsMutable();
             fcmTokens_.addAll(other.fcmTokens_);
+          }
+          onChanged();
+        }
+        if (!other.expoTokens_.isEmpty()) {
+          if (expoTokens_.isEmpty()) {
+            expoTokens_ = other.expoTokens_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureExpoTokensIsMutable();
+            expoTokens_.addAll(other.expoTokens_);
           }
           onChanged();
         }
@@ -778,6 +873,100 @@ public final class UserTokensOuterClass {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.LazyStringList expoTokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureExpoTokensIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          expoTokens_ = new com.google.protobuf.LazyStringArrayList(expoTokens_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getExpoTokensList() {
+        return expoTokens_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public int getExpoTokensCount() {
+        return expoTokens_.size();
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public java.lang.String getExpoTokens(int index) {
+        return expoTokens_.get(index);
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExpoTokensBytes(int index) {
+        return expoTokens_.getByteString(index);
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public Builder setExpoTokens(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureExpoTokensIsMutable();
+        expoTokens_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public Builder addExpoTokens(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureExpoTokensIsMutable();
+        expoTokens_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public Builder addAllExpoTokens(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureExpoTokensIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, expoTokens_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public Builder clearExpoTokens() {
+        expoTokens_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expoTokens = 4;</code>
+       */
+      public Builder addExpoTokensBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureExpoTokensIsMutable();
+        expoTokens_.add(value);
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -841,10 +1030,10 @@ public final class UserTokensOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021user_tokens.proto\"B\n\nUserTokens\022\016\n\006use" +
+      "\n\021user_tokens.proto\"V\n\nUserTokens\022\016\n\006use" +
       "rId\030\001 \001(\003\022\021\n\tiosTokens\030\002 \003(\t\022\021\n\tfcmToken" +
-      "s\030\003 \003(\tB)\n\'com.wine.to.up.user.service.a" +
-      "pi.messageb\006proto3"
+      "s\030\003 \003(\t\022\022\n\nexpoTokens\030\004 \003(\tB)\n\'com.wine." +
+      "to.up.user.service.api.messageb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -863,7 +1052,7 @@ public final class UserTokensOuterClass {
     internal_static_UserTokens_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserTokens_descriptor,
-        new java.lang.String[] { "UserId", "IosTokens", "FcmTokens", });
+        new java.lang.String[] { "UserId", "IosTokens", "FcmTokens", "ExpoTokens", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
