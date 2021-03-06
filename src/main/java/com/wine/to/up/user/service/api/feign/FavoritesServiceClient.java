@@ -20,7 +20,7 @@ public interface FavoritesServiceClient {
      * Returns list of user's favorites
      * @param token token provided in request
      */
-    @RequestLine(value = "GET /favorites")
+    @RequestLine(value = "GET /favorites/")
     @Headers({"Content-Type: application/json", "Authorization: {token}"})
     List<ItemDto> findUsersFavorites(@Param("token") String token);
 }
