@@ -10,17 +10,19 @@ import java.util.List;
 public interface FavoritesServiceClient {
     /**
      * Returns list of user's favorites as list of ids
-     * @param token token provided in request
+     * @param id - user id
+     * @param role - user role
      */
     @RequestLine(value = "GET /favorites/list")
-    @Headers({"Content-Type: application/json", "Authorization: {token}"})
-    List<String> findUsersFavoritesIdList(@Param("token") String token);
+    @Headers({"Content-Type: application/json", "id: {id}", "role: {role}"})
+    List<String> findUsersFavoritesIdList(@Param("id") String id, @Param("role") String role);
 
     /**
      * Returns list of user's favorites
-     * @param token token provided in request
+     * @param id - user id
+     * @param role - user role
      */
     @RequestLine(value = "GET /favorites/")
-    @Headers({"Content-Type: application/json", "Authorization: {token}"})
-    List<ItemDto> findUsersFavorites(@Param("token") String token);
+    @Headers({"Content-Type: application/json", "id: {id}", "role: {role}"})
+    List<ItemDto> findUsersFavorites(@Param("id") String id, @Param("role") String role);
 }
