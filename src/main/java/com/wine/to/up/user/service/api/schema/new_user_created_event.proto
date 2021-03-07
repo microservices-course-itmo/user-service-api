@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "com.wine.to.up.user.service.api.message";
+
+message NewUserCreatedEvent {
+  int64 userId = 1;
+  string phoneNumber = 2;
+  string name = 3;
+  string birthdate = 4;
+  int64 cityId = 5;
+}
