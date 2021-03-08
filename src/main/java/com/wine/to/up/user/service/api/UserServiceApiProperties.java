@@ -24,4 +24,6 @@ public class UserServiceApiProperties {
 
     // topic names
     private String winePriceUpdatedWithTokensTopicName;
+    private String userUpdatedTopicName;
+    private String favoritesUpdatedTopicName;
 }
