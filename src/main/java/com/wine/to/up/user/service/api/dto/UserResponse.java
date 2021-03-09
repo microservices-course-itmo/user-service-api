@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 public class UserResponse {
@@ -13,5 +15,5 @@ public class UserResponse {
     private String name;
     private Long cityId;
     @JsonFormat(pattern = "dd.MM.yyyy", shape = JsonFormat.Shape.STRING)
-    private String birthdate;
+    private LocalDate birthdate;
 }
